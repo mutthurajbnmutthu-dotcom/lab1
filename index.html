@@ -3,118 +3,641 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mutthuraj B N - Personal Website</title>
+
+    <title>Mutthu | CSE Student & Cricket Enthusiast</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            color: white;
+            background:
+                radial-gradient(circle at top left, #123c69, transparent 35%),
+                radial-gradient(circle at bottom right, #3b0764, transparent 35%),
+                #050816;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND ICONS ================= */
+
+        .background-icons {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .icon {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 0 25px rgba(0, 200, 255, 0.12),
+                inset 0 0 20px rgba(255, 255, 255, 0.04);
+
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .icon:nth-child(1) {
+            top: 8%;
+            left: 8%;
+        }
+
+        .icon:nth-child(2) {
+            top: 15%;
+            right: 12%;
+            animation-delay: 1s;
+        }
+
+        .icon:nth-child(3) {
+            top: 45%;
+            left: 4%;
+            animation-delay: 2s;
+        }
+
+        .icon:nth-child(4) {
+            top: 50%;
+            right: 5%;
+            animation-delay: 3s;
+        }
+
+        .icon:nth-child(5) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+
+        .icon:nth-child(6) {
+            bottom: 8%;
+            right: 18%;
+            animation-delay: 5s;
+        }
+
+        .icon:nth-child(7) {
+            top: 32%;
+            left: 20%;
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+            animation-delay: 1.5s;
+        }
+
+        .icon:nth-child(8) {
+            top: 70%;
+            right: 25%;
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-25px) rotate(8deg);
+            }
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: relative;
+            z-index: 10;
+
+            width: 90%;
+            max-width: 1100px;
+            margin: 25px auto;
+
+            padding: 16px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+
+            backdrop-filter: blur(15px);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #00d9ff;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            position: relative;
+            z-index: 2;
+
+            min-height: 80vh;
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .small-title {
+            color: #00d9ff;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #00d9ff, #a855f7);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: #b9c1d0;
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+
+        /* ================= CRICKET BALL ================= */
+
+        .cricket-area {
+            width: 320px;
+            height: 320px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .cricket-ball {
+            width: 210px;
+            height: 210px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle at 30% 25%, #ff6666, #b40000 65%, #650000);
+
+            box-shadow:
+                0 0 50px rgba(255, 50, 50, 0.35),
+                inset -20px -20px 35px rgba(0, 0, 0, 0.3);
+
+            animation: ballFloat 4s ease-in-out infinite;
+        }
+
+        .ball-line {
+            position: absolute;
+            width: 225px;
+            height: 70px;
+            border-top: 3px dashed white;
+            border-bottom: 3px dashed white;
+            border-radius: 50%;
+
+            transform: rotate(-45deg);
+            opacity: 0.8;
+        }
+
+        @keyframes ballFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(12deg);
+            }
+        }
+
+        /* ================= BUTTONS ================= */
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            color: #03121c;
+            background: linear-gradient(90deg, #00d9ff, #55e6ff);
+        }
+
+        .secondary {
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+
+        /* ================= ABOUT ================= */
+
+        .section {
+            position: relative;
+            z-index: 2;
+
+            width: 90%;
+            max-width: 1100px;
+            margin: 50px auto 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #00d9ff;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 30px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #aeb7c7;
+            line-height: 1.7;
+        }
+
+        /* ================= DREAM ================= */
+
+        .dream {
+            position: relative;
+            z-index: 2;
+
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto 100px;
+
+            padding: 50px;
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 217, 255, 0.09),
+                    rgba(168, 85, 247, 0.09)
+                );
+
+            border: 1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px);
+        }
+
+        .dream h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .dream p {
+            color: #b9c1d0;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .dream strong {
+            color: #00d9ff;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            position: relative;
+            z-index: 2;
+
+            text-align: center;
+            padding: 30px;
+
+            color: #7e899c;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                width: 94%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .cricket-area {
+                width: 250px;
+                height: 250px;
+            }
+
+            .cricket-ball {
+                width: 160px;
+                height: 160px;
+            }
+
+            .ball-line {
+                width: 175px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .dream {
+                padding: 35px 20px;
+            }
+
+            .dream h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Hello, I'm Mutthuraj B N 👋</h1>
-        <p>Welcome to my personal webpage!</p>
-    </header>
+    <!-- FLOATING BACKGROUND ICONS -->
 
-    <hr>
+    <div class="background-icons">
 
-    <section>
-        <h2>About Me</h2>
-        <p>
-            My name is <strong>Mutthuraj B N</strong>.
-            I am currently studying at <strong>JIT College</strong>.
-        </p>
-        <p>
-            I am currently learning <strong>Git and GitHub</strong>
-            and improving my web development skills.
-        </p>
-    </section>
+        <div class="icon">🏏</div>
+        <div class="icon">💻</div>
+        <div class="icon">🏆</div>
+        <div class="icon">⚡</div>
+        <div class="icon">🎯</div>
+        <div class="icon">🚀</div>
+        <div class="icon">⚙️</div>
+        <div class="icon">🔥</div>
 
-    <section>
-        <h2>My Learning</h2>
-        <ul>
-            <li>HTML</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Web Development</li>
-        </ul>
-    </section>
+    </div>
 
-    <section>
-        <h2>My Goal</h2>
-        <p>
-            My goal is to learn programming and web development
-            and build useful projects.
-        </p>
-    </section>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            MUT<span>THU</span>
+        </div>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#dream">Dream</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="small-title">
+                    CSE Student • Cricket Lover
+                </div>
+
+                <h1>
+                    Hi, I'm <span>Mutthu</span>
+                </h1>
+
+                <p class="hero-description">
+                    I'm currently studying Computer Science and Engineering
+                    at <strong>Jain Institute of Technology</strong>.
+                    I love technology, learning new things, and most of all,
+                    playing cricket.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="btn primary">
+                        Explore My Story
+                    </a>
+
+                    <a href="#dream" class="btn secondary">
+                        My Dream 🏏
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CRICKET BALL -->
+
+            <div class="cricket-area">
+
+                <div class="cricket-ball"></div>
+                <div class="ball-line"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="section" id="about">
+
+            <h2 class="section-title">
+                A Little <span>About Me</span>
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">💻</div>
+
+                    <h3>Computer Science</h3>
+
+                    <p>
+                        Currently pursuing CSE at Jain Institute of Technology.
+                        I enjoy exploring programming, technology and building
+                        creative digital experiences.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">🏏</div>
+
+                    <h3>Cricket</h3>
+
+                    <p>
+                        Cricket is one of my biggest passions.
+                        Whenever I get an opportunity, I love stepping onto
+                        the field and playing the game.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">🚀</div>
+
+                    <h3>Future</h3>
+
+                    <p>
+                        I want to keep improving myself, develop my technical
+                        skills and take every opportunity that comes my way.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DREAM -->
+
+        <section class="dream" id="dream">
+
+            <h2>
+                My Cricket Dream 🏏
+            </h2>
+
+            <p>
+                If I ever get the opportunity to play cricket at the
+                <strong>international level</strong>,
+                I would love to step onto that field and give everything
+                I have. Until then, I'll keep learning, practicing,
+                improving and chasing the dream.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
 
     <footer>
-        <hr>
-        <p>&copy; 2026 Mutthuraj B N. All rights reserved.</p>
-    </footer>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mutthu - My Personal Website</title>
-</head>
-
-<body>
-
-    <header>
-        <h1>Hello, I'm Mutthu 👋</h1>
-        <p>Welcome to my personal website!</p>
-    </header>
-
-    <hr>
-
-    <section>
-        <h2>About Me</h2>
         <p>
-            My name is <strong>Mutthu</strong>. I am currently studying
-            <strong>Computer Science and Engineering (CSE)</strong>
-            at <strong>Jain Institute of Technology</strong>.
+            © 2026 Mutthu • CSE Student • Cricket Enthusiast 🏏
         </p>
-    </section>
 
-    <section>
-        <h2>My Hobby 🏏</h2>
-        <p>
-            I love playing cricket. Cricket is one of my favorite sports,
-            and I enjoy playing it whenever I get the chance.
-        </p>
-    </section>
-
-    <section>
-        <h2>My Dream 🎯</h2>
-        <p>
-            If I get an opportunity to play cricket at the international level,
-            I would love to take that opportunity and represent my country.
-        </p>
-    </section>
-
-    <section>
-        <h2>My Education 🎓</h2>
-        <p>
-            Currently, I am pursuing my CSE degree at
-            <strong>Jain Institute of Technology</strong>.
-        </p>
-    </section>
-
-    <section>
-        <h2>My Interests</h2>
-        <ul>
-            <li>🏏 Playing Cricket</li>
-            <li>💻 Computer Science</li>
-            <li>🌐 Web Development</li>
-            <li>📚 Learning New Technologies</li>
-        </ul>
-    </section>
-
-    <hr>
-
-    <footer>
-        <p>&copy; 2026 Mutthu. All rights reserved.</p>
     </footer>
 
 </body>
